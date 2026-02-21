@@ -1,6 +1,6 @@
 name: Cache Demo
 
-on: [push]  # Runs on every push to any branch
+on: [push]
 
 jobs:
   demo:
@@ -10,12 +10,13 @@ jobs:
     - name: Checkout code
       uses: actions/checkout@v4
     
-    - name: prime-cache-95625b9  # Exact name required
+    - name: prime-cache-95625b9
       id: cache-step
       uses: actions/cache@v4
       with:
-        path: ~/.cache  # Caches a dummy folder (you can change to real deps later)
-        key: cache-95625b9  # Exact key required
+        path: ~/.cache
+        key: cache-95625b9
         
     - name: Echo cache result
-      run: echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
+      run: |
+        echo "Cache result: ${{ steps.cache-step.outputs.cache-hit }}"
