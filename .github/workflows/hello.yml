@@ -1,0 +1,13 @@
+name: Hello Action  # Name shown in GitHub UI
+
+on: [push]  # Triggers on any push to any branch
+
+jobs:
+  test:
+    runs-on: ubuntu-latest  # Free virtual machine (runner) provided by GitHub
+    steps:
+      - name: Checkout code  # Standard step to grab your repo files
+        uses: actions/checkout@v4
+        
+      - name: 22f3001114@ds.study.iitm.ac.in  # Your required step—name includes email
+        run: echo "Hello from Ishita's action!"
